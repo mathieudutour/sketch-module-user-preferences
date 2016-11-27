@@ -1,0 +1,25 @@
+{
+  "name": "sketch-module-user-preferences",
+  "version": "0.1.0",
+  "description": "A sketch module to manage a plugin's user preferences",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathieudutour/sketch-module-user-preferences.git"
+  },
+  "keywords": [
+    "sketch",
+    "module",
+    "user",
+    "preferences"
+  ],
+  "author": "Mathieu Dutour <mathieu@dutour.me> (http://mathieu.dutour.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mathieudutour/sketch-module-user-preferences/issues"
+  },
+  "homepage": "https://github.com/mathieudutour/sketch-module-user-preferences#readme"
+}
