@@ -8,7 +8,7 @@ A sketch module to manage a plugin's user preferences.
 ## Usage
 
 ```javascript
-import {getUserPreferences, setUserPreferences} from 'sketch-module-user-preferences'
+import prefsManager from 'sketch-module-user-preferences'
 
 const defaultPreferences = {
   timeBetweenChecks: 24 * 60 * 60 * 1000, // 1 day by default
@@ -16,9 +16,9 @@ const defaultPreferences = {
   diffByDefault: true
 }
 
-const preferences = getUserPreferences('myPluginName', defaultPreferences)
+const preferences = prefsManager.getUserPreferences('myPluginName', defaultPreferences)
 
-setUserPreferences('myPluginName', {
+prefsManager.setUserPreferences('myPluginName', {
   timeBetweenChecks: 3 * 24 * 60 * 60 * 1000, // 3 days now
 })
 
