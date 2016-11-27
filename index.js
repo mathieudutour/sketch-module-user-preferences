@@ -31,7 +31,5 @@ function setUserPreferences(pluginName, prefs) {
   store.synchronize()
 }
 
-module.exports = {
-  getUserPreferences: getUserPreferences,
-  setUserPreferences, setUserPreferences
-}
+exports.getUserPreferences = getUserPreferences,
+exports.setUserPreferences = setUserPreferences
