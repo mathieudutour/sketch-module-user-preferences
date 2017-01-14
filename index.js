@@ -4,9 +4,9 @@ module.exports = {
     var store = NSUserDefaults.standardUserDefaults()
     Object.keys(defaultPrefs).forEach(function (k) {
       if (typeof defaultPrefs[k] === 'boolean') {
-        prefs[k] = store.boolForKey(pluginName + k) || defaultPrefs[k]
+        prefs[k] = typeof store.boolForKey(pluginName + k) !== 'undefined' ? store.boolForKey(pluginName + k) : defaultPrefs[k]
       } else if (typeof defaultPrefs[k] === 'number') {
-        prefs[k] = store.doubleForKey(pluginName + k) || defaultPrefs[k]
+        prefs[k] = typeof store.doubleForKey(pluginName + k) !== 'undefined' ? store.boolForKey(pluginName + k) : defaultPrefs[k]
       } else if (typeof defaultPrefs[k] === 'string') {
         prefs[k] = store.stringForKey(pluginName + k) || defaultPrefs[k]
       } else if (Array.isArray(defaultPrefs[k])) {
