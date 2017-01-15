@@ -1,12 +1,16 @@
+function isPresent (data) {
+  return typeof data !== 'undefined' && data !== null
+}
+
 module.exports = {
   getUserPreferences: function (pluginName, defaultPrefs) {
     var prefs = {}
     var store = NSUserDefaults.standardUserDefaults()
     Object.keys(defaultPrefs).forEach(function (k) {
       if (typeof defaultPrefs[k] === 'boolean') {
-        prefs[k] = typeof store.boolForKey(pluginName + k) !== 'undefined' ? Boolean(store.boolForKey(pluginName + k)) : defaultPrefs[k]
+        prefs[k] = isPresent(store.boolForKey(pluginName + k)) ? Boolean(store.boolForKey(pluginName + k)) : defaultPrefs[k]
       } else if (typeof defaultPrefs[k] === 'number') {
-        prefs[k] = typeof store.doubleForKey(pluginName + k) !== 'undefined' ? store.boolForKey(pluginName + k) : defaultPrefs[k]
+        prefs[k] = isPresent(store.doubleForKey(pluginName + k)) ? store.boolForKey(pluginName + k) : defaultPrefs[k]
       } else if (typeof defaultPrefs[k] === 'string') {
         prefs[k] = ('' + store.stringForKey(pluginName + k)) || defaultPrefs[k]
       } else if (Array.isArray(defaultPrefs[k])) {
