@@ -1,18 +1,20 @@
+const SUITE_PREFIX = 'plugin.sketch.'
+
 function isPresent (data) {
-  return typeof data !== 'undefined' && data !== null
+  return data != null
 }
 
 module.exports = {
   getUserPreferences: function (pluginName, defaultPrefs) {
     var prefs = {}
-    var store = NSUserDefaults.alloc().initWithSuiteName('plugin.sketch.' + pluginName)
+    var store = NSUserDefaults.alloc().initWithSuiteName(SUITE_PREFIX + pluginName)
     Object.keys(defaultPrefs).forEach(function (k) {
       if (typeof defaultPrefs[k] === 'boolean') {
         prefs[k] = isPresent(store.boolForKey(k)) ? Boolean(store.boolForKey(k)) : defaultPrefs[k]
       } else if (typeof defaultPrefs[k] === 'number') {
         prefs[k] = isPresent(store.doubleForKey(k)) ? store.boolForKey(k) : defaultPrefs[k]
       } else if (typeof defaultPrefs[k] === 'string') {
-        prefs[k] = ('' + store.stringForKey(k)) || defaultPrefs[k]
+        prefs[k] = isPresent(store.boolForKey(k)) ? '' + store.stringForKey(k) : defaultPrefs[k]
       } else if (Array.isArray(defaultPrefs[k])) {
         prefs[k] = store.arrayForKey(k) || defaultPrefs[k]
       } else {
@@ -22,7 +24,7 @@ module.exports = {
     return prefs
   },
   setUserPreferences: function (pluginName, prefs) {
-    var store = NSUserDefaults.alloc().initWithSuiteName('plugin.sketch.' + pluginName)
+    var store = NSUserDefaults.alloc().initWithSuiteName(SUITE_PREFIX + pluginName)
     Object.keys(prefs).forEach(function (k) {
       if (typeof prefs[k] === 'boolean') {
         store.setBool_forKey(prefs[k], k)
