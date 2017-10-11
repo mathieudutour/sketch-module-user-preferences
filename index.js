@@ -12,9 +12,9 @@ module.exports = {
       if (typeof defaultPrefs[k] === 'boolean') {
         prefs[k] = isPresent(store.boolForKey(k)) ? Boolean(store.boolForKey(k)) : defaultPrefs[k]
       } else if (typeof defaultPrefs[k] === 'number') {
-        prefs[k] = isPresent(store.doubleForKey(k)) ? store.boolForKey(k) : defaultPrefs[k]
+        prefs[k] = isPresent(store.doubleForKey(k)) ? store.doubleForKey(k) : defaultPrefs[k]
       } else if (typeof defaultPrefs[k] === 'string') {
-        prefs[k] = isPresent(store.boolForKey(k)) ? '' + store.stringForKey(k) : defaultPrefs[k]
+        prefs[k] = isPresent(store.stringForKey(k)) ? '' + store.stringForKey(k) : defaultPrefs[k]
       } else if (Array.isArray(defaultPrefs[k])) {
         prefs[k] = store.arrayForKey(k) || defaultPrefs[k]
       } else {
