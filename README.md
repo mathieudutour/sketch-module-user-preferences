@@ -1,3 +1,7 @@
+# THIS MODULE IS OUTDATED. THERE IS NOW A NATIVE API TO DO THAT: https://developer.sketchapp.com/reference/api/#settings
+
+---
+
 # sketch-module-update
 
 [![Downloads per month](https://img.shields.io/npm/dm/sketch-module-user-preferences.svg?maxAge=2592000)](https://www.npmjs.com/package/sketch-module-user-preferences/)
